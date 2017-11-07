@@ -172,12 +172,13 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+
         #llum_providers
 
         /*
          * Package Service Providers...
          */
-
+            Scamposm\Offers\Providers\OffersServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -242,6 +243,8 @@ return [
          * See: https://github.com/acacha/llum
          */
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         #llum_aliases
 

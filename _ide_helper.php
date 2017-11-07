@@ -1,7 +1,11 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
+<<<<<<< HEAD
  * Generated for Laravel 5.5.19 on 2017-10-31.
+=======
+ * Generated for Laravel 5.5.17 on 2017-10-17.
+>>>>>>> c2a5f0a2f036c17f18c51439f0c2d16267943086
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -3228,7 +3232,11 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the cookies which have been queued for the next request.
          *
+<<<<<<< HEAD
          * @return \Symfony\Component\HttpFoundation\Cookie[] 
+=======
+         * @return array 
+>>>>>>> c2a5f0a2f036c17f18c51439f0c2d16267943086
          * @static 
          */ 
         public static function getQueuedCookies()
@@ -4758,7 +4766,11 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $directory
          * @param bool $hidden
+<<<<<<< HEAD
          * @return \Symfony\Component\Finder\SplFileInfo[] 
+=======
+         * @return array 
+>>>>>>> c2a5f0a2f036c17f18c51439f0c2d16267943086
          * @static 
          */ 
         public static function files($directory, $hidden = false)
@@ -4771,7 +4783,11 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $directory
          * @param bool $hidden
+<<<<<<< HEAD
          * @return \Symfony\Component\Finder\SplFileInfo[] 
+=======
+         * @return array 
+>>>>>>> c2a5f0a2f036c17f18c51439f0c2d16267943086
          * @static 
          */ 
         public static function allFiles($directory, $hidden = false)
@@ -6652,6 +6668,7 @@ namespace Illuminate\Support\Facades {
         {
             \Illuminate\Routing\Redirector::setSession($session);
         }
+<<<<<<< HEAD
         
         /**
          * Register a custom macro.
@@ -6689,6 +6706,8 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Routing\Redirector::hasMacro($name);
         }
+=======
+>>>>>>> c2a5f0a2f036c17f18c51439f0c2d16267943086
          
     }
 

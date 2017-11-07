@@ -1,7 +1,9 @@
 <?php
-
 use Illuminate\Database\Seeder;
-
+use Scamposm\Offers\Models\Offer;
+/**
+ * Class DatabaseSeeder
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory(Offer::class,50)->create();
     }
 }
