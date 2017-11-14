@@ -1,7 +1,5 @@
 <?php
-
 namespace Tests\Feature;
-
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +8,6 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-
 /**
  * Class AcachaAdminLTELaravelTest.
  *
@@ -19,7 +16,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class AcachaAdminLTELaravelTest extends TestCase
 {
     use DatabaseMigrations;
-
     /**
      * Set up tests.
      */
@@ -28,7 +24,6 @@ class AcachaAdminLTELaravelTest extends TestCase
         parent::setUp();
         App::setLocale('en');
     }
-
     /**
      * Set up before class.
      */
@@ -36,7 +31,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         passthru('composer dumpautoload');
     }
-
     /**
      * Test url returns 200.
      *
@@ -46,7 +40,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturnsCode($url, 200);
     }
-
     /**
      * Test url returns 404.
      *
@@ -56,7 +49,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturnsCode($url, 404);
     }
-
     /**
      * Test url returns 302.
      *
@@ -66,7 +58,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturnsCode($url, 302);
     }
-
     /**
      * Test url returns 401.
      *
@@ -76,9 +67,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturnsCode($url, 401);
     }
-
-
-
     /**
      * Test url returns a specific status code.
      *
@@ -88,10 +76,8 @@ class AcachaAdminLTELaravelTest extends TestCase
     public function urlReturnsCode($url, $code)
     {
         $response = $this->get($url);
-
         $response->assertStatus($code);
     }
-
     /**
      * Test landing page.
      *
@@ -101,7 +87,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturns200('/');
     }
-
     /**
      * Test home page.
      *
@@ -111,7 +96,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturns302('/home');
     }
-
     /**
      * Test login page.
      *
@@ -121,7 +105,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturns200('/login');
     }
-
     /**
      * Test register page.
      *
@@ -131,7 +114,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturns200('/register');
     }
-
     /**
      * Test password reset page.
      *
@@ -141,7 +123,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturns200('/password/reset');
     }
-
     /**
      * Test 404 Error page.
      *
@@ -151,7 +132,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturns404('asdasdjlapmnnk');
     }
-
     /**
      * Test user api.
      *
@@ -161,7 +141,6 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $this->urlReturns302('/api/user');
     }
-
     /**
      * Test user registration.
      *
@@ -176,15 +155,12 @@ class AcachaAdminLTELaravelTest extends TestCase
             'password' => 'passw0RD',
             'password_confirmation' => 'passw0RD',
         ]);
-
         $response->assertStatus(302);
-
         $this->assertDatabaseHas('users', [
             'name' => 'Sergi Tur Badenas',
             'email' => 'sergiturbadenas@gmail.com'
         ]);
     }
-
     /**
      * Test user registration required fields.
      *
@@ -198,7 +174,6 @@ class AcachaAdminLTELaravelTest extends TestCase
             'password' => '',
             'password_confirmation' => '',
         ]);
-
         $response->assertStatus(422)->assertJson([
             'message' => "The given data was invalid.",
             'errors' => [
@@ -209,7 +184,6 @@ class AcachaAdminLTELaravelTest extends TestCase
             ]
         ]);
     }
-
     /**
      * Test login.
      *
@@ -218,15 +192,12 @@ class AcachaAdminLTELaravelTest extends TestCase
     public function testLogin()
     {
         $user = factory(\App\User::class)->create(['password' => Hash::make('passw0RD')]);
-
         $response = $this->json('POST', '/login', [
             'email' => $user->email,
             'password' => 'passw0RD',
         ]);
-
         $response->assertStatus(302);
     }
-
     /**
      * Test login failed.
      *
@@ -238,7 +209,6 @@ class AcachaAdminLTELaravelTest extends TestCase
             'email' => 'sergiturbadenas@gmail.com',
             'password' => 'passw0RDinventatquenopotfuncionat',
         ]);
-
         $response->assertStatus(422)->assertJson([
             'message' => 'The given data was invalid.',
             'errors' => [
@@ -246,7 +216,6 @@ class AcachaAdminLTELaravelTest extends TestCase
             ]
         ]);
     }
-
     /**
      * Test user registration required fields.
      *
@@ -258,7 +227,6 @@ class AcachaAdminLTELaravelTest extends TestCase
             'email' => '',
             'password' => '',
         ]);
-
         $response->assertStatus(422)->assertJson([
             'message' => "The given data was invalid.",
             'errors' => [
@@ -267,7 +235,6 @@ class AcachaAdminLTELaravelTest extends TestCase
             ]
         ]);
     }
-
     /**
      * Test make:view command
      *
@@ -290,7 +257,6 @@ class AcachaAdminLTELaravelTest extends TestCase
         $this->assertEquals('File already exists', trim($resultAsText));
         unlink(resource_path($viewPath));
     }
-
     /**
      * Create view using make:view command.
      *
@@ -302,7 +268,6 @@ class AcachaAdminLTELaravelTest extends TestCase
             'name' => $view,
         ]);
     }
-
     /**
      * Test adminlte:admin command
      *
@@ -318,8 +283,6 @@ class AcachaAdminLTELaravelTest extends TestCase
         $this->callAdminlteAdminCommand();
         $this->assertFileExists($seed);
     }
-
-
     /**
      * Call adminlte:admin command.
      */
