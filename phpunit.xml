@@ -9,6 +9,12 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
+<<<<<<< HEAD
+=======
+        <testsuite name="Offers">
+            <directory suffix="Test.php">./offers/tests/Feature</directory>
+        </testsuite>
+>>>>>>> 5037781d7605f7a814319b0c6cc05c4eb65eb32b
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>

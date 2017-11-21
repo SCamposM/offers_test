@@ -57,9 +57,21 @@ return [
 
         's3' => [
             'driver' => 's3',
+<<<<<<< HEAD
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
+=======
+<<<<<<< HEAD
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+=======
+            'key' => env('AWS_KEY'),
+            'secret' => env('AWS_SECRET'),
+            'region' => env('AWS_REGION'),
+>>>>>>> c2a5f0a2f036c17f18c51439f0c2d16267943086
+>>>>>>> 5037781d7605f7a814319b0c6cc05c4eb65eb32b
             'bucket' => env('AWS_BUCKET'),
         ],
 

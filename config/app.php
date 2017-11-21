@@ -170,12 +170,24 @@ return [
          * See: https://github.com/acacha/llum
          */
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+<<<<<<< HEAD
+=======
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+>>>>>>> 5037781d7605f7a814319b0c6cc05c4eb65eb32b
         #llum_providers
 
         /*
          * Package Service Providers...
          */
+<<<<<<< HEAD
 
+=======
+            Scamposm\Offers\Providers\OffersServiceProvider::class,
+>>>>>>> 5037781d7605f7a814319b0c6cc05c4eb65eb32b
         /*
          * Application Service Providers...
          */
@@ -240,6 +252,13 @@ return [
          * See: https://github.com/acacha/llum
          */
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+<<<<<<< HEAD
+=======
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+>>>>>>> 5037781d7605f7a814319b0c6cc05c4eb65eb32b
         #llum_aliases
 
     ],
